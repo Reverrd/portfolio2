@@ -43,7 +43,7 @@ export default function ProjectSection() {
             {
                 projects.map((project)=>{
                 return (
-                    <div className='bg-white  rounded-xl flex flex-col  max-h-fit box-border sm:w-9/12 md:w-5/12 lg:w-4/12' key={project.id}>
+                    <a className='bg-white  rounded-xl flex flex-col  max-h-fit box-border sm:w-9/12 md:w-5/12 lg:w-4/12' key={project.id} href={project.url} target='_blank' rel='noopener noreferrer'>
                         
                         
                         <img className='rounded-xl h-2/3' src={project.image} alt="" />
@@ -58,7 +58,7 @@ export default function ProjectSection() {
                         
                         
 
-                    </div>
+                    </a>
                 )
                 })
             }
