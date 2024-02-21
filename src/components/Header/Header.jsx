@@ -68,7 +68,7 @@ export default function Header() {
         {
             id:3,
             icon: <Twitter />,
-            url:'http://twitter.com' 
+            url:'http://twitter.com/PromiseObioma3' 
         }
       ]
   return (
@@ -79,9 +79,9 @@ export default function Header() {
       {
         socials.map((social)=>{
             return(
-            <div className='mr-5 hover:cursor-pointer' key={social.id} href={social.url}>
+            <a className='mr-5 hover:cursor-pointer' key={social.id} href={social.url} target='_blank' rel='noopener noreferrer'>
                 {social.icon}
-            </div>
+            </a>
         )}
 
         )
