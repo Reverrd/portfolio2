@@ -1,5 +1,5 @@
-
-import { useEffect, useState } from "react";
+import { ChakraProvider } from '@chakra-ui/react'
+// import { useEffect, useState } from "react"
 import './App.css'
 import Body from './components/body/body/Body'
 import Footer from './components/footer/Footer'
@@ -25,7 +25,7 @@ function App() {
  
   return (
     <>
-      
+      <ChakraProvider/>
       <Header />
       
       <div>
@@ -36,7 +36,7 @@ function App() {
       </div>
       
       <Footer  />
-      
+      <ChakraProvider/>
      </>
   )
 }

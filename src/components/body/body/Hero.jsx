@@ -29,9 +29,13 @@ export default function Hero() {
     <>
     <div id="home" className="h-screen w-full bg-cyan-800 flex items-center justify-center relative">
     <div className="w-3/4  flex flex-col items-center ">
-        <div className="image">
-            <img className='bg-slate-500 ' src="./assets/Myself.jpg" alt="" />
+      <div className="container flex items-end justify-center relative  w-72 h-72 ">
+        <div className="box border-2 w-60 h-60 rounded-rounded-circle bg-slate-500 absolute bottom-0   ">
+        <div className="image  ">
+            <img className='absolute bottom-0 '  src="./assets/Myself.jpg" alt="" />
         </div>
+        </div>
+      </div>
         <div className='text-white'>
           hello 🙂, I am Promise
         </div>

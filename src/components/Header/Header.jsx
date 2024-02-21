@@ -1,6 +1,6 @@
 
 import { Close, GitHub, LinkedIn, Menu, Twitter } from '@mui/icons-material'
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 export default function Header() {
   
   
@@ -19,11 +19,11 @@ export default function Header() {
   //   };
   // }, [isClicked]);
   
-  const menuIcon = document.getElementById('menu')
+  // const menuIcon = document.getElementById('menu')
  
     const menuClick = ()=>{
      setIsClicked(true)
-     menuIcon
+    //  menuIcon
     }
 
     const closeClick = ()=>{
@@ -93,7 +93,7 @@ export default function Header() {
       <span onClick={()=>handleClick('contact')} className='ml-5 lg:inline md:inline sm:hidden xxs:hidden'>Contact Me</span>
       <span className='ml-5 lg:inline md:inline sm:hidden xxs: hidden '>Resume</span>
       <span 
-      value={menuIcon}
+      // value={menuIcon}
       onClick={isClicked?closeClick:menuClick} 
       id='menu' className=' ml-5 lg:hidden md:hidden z-60'>{isClicked ?null : <Menu />}</span>
      
