@@ -45,12 +45,19 @@ export default function Header() {
         <div className='clickedMenu absolute bg-gray-900 bg-opacity-50 w-screen h-screen z-30 right-0 top-0 '>
         </div>
         <div className='text-white navPop text-2xl  w-5/12 xsm:w-10/12 h-screen  flex flex-col items-center absolute top-12 right-0  z-50'>
-          
+         <div className='close border-b flex justify-center'>
         <div
-        onClick={closeClick} className='close pb-16'><Close className='text-lg! cursor-pointer'/></div>
-        <div onClick={()=>handleClick('project')}  className='cursor-pointer  pb-5 pl-4 '>Project</div>
-        <div onClick={()=>handleClick('contact')} className='cursor-pointer pb-5 pl-4' >Contact Me</div>
-        <div className='pb-5 pl-4'>Resume</div>
+        onClick={closeClick} className=' pb-16  '><Close className='text-lg! cursor-pointer'/></div>
+        </div> 
+         <div className='project flex border-b justify-center py-6 hover:bg-cyan-700'>
+        <div onClick={()=>handleClick('project')}  className='   cursor-pointer   '>Project</div>
+        </div> 
+        <div className='contact flex border-b justify-center py-6 hover:bg-cyan-700'> 
+        <div onClick={()=>handleClick('contact')} className='  cursor-pointer ' >Contact Me</div>
+        </div>
+        <div className='resume flex border-b justify-center py-6 hover:bg-cyan-700'>
+        <div className='cursor-pointer'>Resume</div>
+        </div> 
       </div>
       </>
       )
