@@ -37,9 +37,9 @@ export default function Hero() {
         </div>
       </div>
         <div className='text-white'>
-          hello 🙂, I am Promise
+          hello 🙂, My name is Promise
         </div>
-        <div className='text-slate-100 text-4xl font-medium text-center '>
+        <div className='text-slate-100 text-4xl xsm:text-2xl font-medium text-center '>
             A Frontend Developer<br/> specialized in React
         </div>
     </div> 
