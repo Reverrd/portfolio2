@@ -44,7 +44,7 @@ export default function Header() {
         <>
         <div className='clickedMenu absolute bg-gray-900 bg-opacity-50 w-screen h-screen z-30 right-0 top-0 '>
         </div>
-        <div className='text-white navPop text-2xl  w-5/12 xsm:w-10/12 h-screen  flex flex-col items-center absolute top-12 right-0  z-50'>
+        <div className='text-white navPop text-2xl  w-10/12 h-screen  flex flex-col items-center absolute top-12 right-0  z-50'>
          <div className='close border-b flex justify-center'>
         <div
         onClick={closeClick} className=' pb-16  '><Close className='text-lg! cursor-pointer'/></div>
