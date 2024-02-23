@@ -5,3 +5,7 @@
 .close,.project,.contact,.resume{
     width: 100%;
 }
+.clickedNav{
+    width: 75%;
+    transition: transform width 3000ms  ease-in;
+}

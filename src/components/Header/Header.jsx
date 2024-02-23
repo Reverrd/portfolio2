@@ -44,7 +44,7 @@ export default function Header() {
         <>
         <div className='clickedMenu absolute bg-gray-900 bg-opacity-50 w-screen h-screen z-30 right-0 top-0 '>
         </div>
-        <div className='text-white navPop text-2xl  w-9/12 h-screen  flex flex-col items-center absolute top-12 right-0  z-50'>
+        <div className='clickedNav text-white navPop text-2xl   h-screen  flex flex-col items-center absolute top-12 right-0  z-50 '>
          <div onClick={closeClick}  className='close border-b border-slate-600 flex justify-center hover:bg-red-600 active:bg-red-500 py-8'>
         <div
         className=''><Close className='text-lg! cursor-pointer'/></div>
@@ -97,9 +97,9 @@ export default function Header() {
       
     </div>
     <div  className='right hover:cursor-pointer'>
-      <span onClick={()=>handleClick('project')} className='ml-5 lg:inline md:inline sm:hidden xxs:hidden'>Projects</span>
-      <span onClick={()=>handleClick('contact')} className='ml-5 lg:inline md:inline sm:hidden xxs:hidden'>Contact Me</span>
-      <span className='ml-5 lg:inline md:inline sm:hidden xxs: hidden '>Resume</span>
+      <span onClick={()=>handleClick('project')} className='ml-5 lg:inline md:inline xsm: hidden'>Projects</span>
+      <span onClick={()=>handleClick('contact')} className='ml-5 lg:inline md:inline xsm: hidden'>Contact Me</span>
+      <span className='ml-5 lg:inline md:inline xsm: hidden '>Resume</span> 
       <span 
       // value={menuIcon}
       onClick={isClicked?closeClick:menuClick} 
