@@ -2,7 +2,17 @@ import { useState, useEffect } from 'react'
 import { KeyboardDoubleArrowUp } from '@mui/icons-material'
 import './body.scss'
 
+const words = ['React Js', 'Next Js', 'Tailwind CSS', 'SCSS', 'Material UI']
 export default function Hero() {
+ const [currentWord, setCurrentWord] = useState(0)
+
+ useEffect(()=>{
+  const interval = setInterval(()=>{
+    setCurrentWord((prevWord) =>(prevWord + 1) %words.length)
+  },2000)
+  return ()=>
+  clearInterval(interval)
+ },[])
   const[isScrolled, setIsScrolled] = useState(false)
   useEffect(()=>{
   const handleScroll = ()=>{
@@ -39,8 +49,8 @@ export default function Hero() {
         <div className='text-white'>
           hello 🙂, My name is Promise
         </div>
-        <div className='text-slate-100 text-4xl xsm:text-2xl font-medium text-center  '>
-            A Frontend Developer<br/> specialized in React js and Next js
+        <div  className='text-slate-100 text-4xl xsm:text-xl font-medium text-center  '>
+            A Frontend Developer<br/> specialized in <span id='scrollText' >{words[currentWord]}</span>
         </div>
     </div> 
     {isScrolled &&(

@@ -88,7 +88,7 @@ export default function Header() {
       {
         socials.map((social)=>{
             return(
-            <a className='mr-5 hover:cursor-pointer hover:text-cyan-800' key={social.id} href={social.url} target='_blank' rel='noopener noreferrer'>
+            <a className='mr-5 hover:cursor-pointer hover:text-cyan-500' key={social.id} href={social.url} target='_blank' rel='noopener noreferrer'>
                 {social.icon}
             </a>
         )}
@@ -104,7 +104,7 @@ export default function Header() {
       <span 
       // value={menuIcon}
       onClick={isClicked?closeClick:menuClick} 
-      id='menu' className=' ml-5 lg:hidden md:hidden z-60'>{isClicked ?null : <Menu />}</span>
+      id='menu' className=' ml-5 lg:hidden md:hidden z-60 hover:text-cyan-500'>{isClicked ?null : <Menu />}</span>
      
     </div>
    {clickedMenu}
