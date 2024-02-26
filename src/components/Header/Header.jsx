@@ -97,7 +97,7 @@ export default function Header() {
       
     </div>
     <div  className='right hover:cursor-pointer'>
-      <span onClick={()=>handleClick('project')} className='ml-5 lg:inline md:inline xsm: hidden'>Projects</span>
+      <span onClick={()=>handleClick('project')} className='ml-5 lg:inline md:inline xsm: hidden '>Projects</span>
       <span onClick={()=>handleClick('contact')} className='ml-5 lg:inline md:inline xsm: hidden'>Contact Me</span>
       <span className='ml-5 lg:inline md:inline xsm: hidden '>Resume</span> 
       <span 

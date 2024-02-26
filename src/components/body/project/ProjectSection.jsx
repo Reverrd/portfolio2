@@ -7,7 +7,7 @@ export default function ProjectSection() {
             id:1,
             image: './assets/vocalCentric.png',
             title:'Vocal Centric',
-            desc:'This app is about connecting different choir groups together ',
+            desc:'This app is about connecting different choir groups together, I built it with React js/vite ',
             url:'http://landingpage-sage-pi.vercel.app',
         },
         {
