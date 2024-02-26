@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Close, GitHub, LinkedIn, Menu, Twitter } from '@mui/icons-material'
 import './header.scss'
 export default function Header() {
@@ -7,19 +7,20 @@ export default function Header() {
   const [isClicked, setIsClicked]= useState(false)
 
   // useEffect(()=>{
-  //   const handleClickOutside = (event)=>{
-  //     isClicked && !event.target.closest('.clickedMenu') ?
-  //     setIsClicked(false):null
-  //   }
-  
-  // document.addEventListener('click', handleClickOutside);
-
-  //   return () => {
-  //     document.removeEventListener('click', handleClickOutside);
+  //   const dropdown = ()=>{
+  //     setIsClicked(false)
   //   };
-  // }, [isClicked]);
+  //   if(typeof document !== 'undefined' && document.body){
+  //     const overlayElement = document.body;
+  //     overlayElement.addEventListener('click', dropdown)
   
-  // const menuIcon = document.getElementById('menu')
+  //     return()=>{
+  //       overlayElement.removeEventListener('click', dropdown)
+  //     }
+  //   }
+   
+
+  // },[])
  
     const menuClick = ()=>{
      setIsClicked(true)
@@ -87,7 +88,7 @@ export default function Header() {
       {
         socials.map((social)=>{
             return(
-            <a className='mr-5 hover:cursor-pointer' key={social.id} href={social.url} target='_blank' rel='noopener noreferrer'>
+            <a className='mr-5 hover:cursor-pointer hover:text-cyan-800' key={social.id} href={social.url} target='_blank' rel='noopener noreferrer'>
                 {social.icon}
             </a>
         )}

@@ -40,7 +40,7 @@ export default function Hero() {
           hello 🙂, My name is Promise
         </div>
         <div className='text-slate-100 text-4xl xsm:text-2xl font-medium text-center  '>
-            A Frontend Developer<br/> specialized in React
+            A Frontend Developer<br/> specialized in React js and Next js
         </div>
     </div> 
     {isScrolled &&(

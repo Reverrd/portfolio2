@@ -1,11 +1,9 @@
 
-// import { useState } from "react";
+
+
 import Validate from "./Validate"
 import { useFormik } from "formik"
-// import Spinner from '@chakra-ui/react'
 export default function ContactSection() {
-
-  // const[isValid, setIsValid] = useState(false)
 
   const formik = useFormik({
     initialValues: {
@@ -18,20 +16,13 @@ export default function ContactSection() {
     onSubmit: values =>{
       console.log(JSON.stringify(values,null,2));
       formik.resetForm()
-    //   isValid ? <Spinner
-    //   thickness='4px'
-    //   speed='0.65s'
-    //   emptyColor='gray.200'
-    //   color='blue.500'
-    //   size='xl'
-    // /> : null
-
     }
   })
   return (
     <div id="contact" className="bg-indigo-800 h-auto text-white static top-10">
       <div id="contactWrapper" className="py-11 px-14">
       <h1 className="font-bold text-2xl text-white">Contact Me</h1>
+      
       <div id="formWrapper" className=" flex  pt-9 justify-center px-28">
       <form onSubmit={formik.handleSubmit} className="w-11/12 lg:w-8/12 xs:w-screen">
         <div className="flex flex-col pb-3 ">
