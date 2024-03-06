@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Close, GitHub, LinkedIn, Menu, Twitter } from '@mui/icons-material'
 import './header.scss'
 export default function Header() {

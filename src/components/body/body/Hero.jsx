@@ -1,18 +1,11 @@
 import { useState, useEffect } from 'react'
 import { KeyboardDoubleArrowUp } from '@mui/icons-material'
+import Typewriter from 'typewriter-effect'
 import './body.scss'
 
-const words = ['React Js', 'Next Js', 'Tailwind CSS', 'SCSS', 'Material UI']
-export default function Hero() {
- const [currentWord, setCurrentWord] = useState(0)
 
- useEffect(()=>{
-  const interval = setInterval(()=>{
-    setCurrentWord((prevWord) =>(prevWord + 1) %words.length)
-  },2000)
-  return ()=>
-  clearInterval(interval)
- },[])
+export default function Hero() {
+ 
   const[isScrolled, setIsScrolled] = useState(false)
   useEffect(()=>{
   const handleScroll = ()=>{
@@ -50,7 +43,14 @@ export default function Hero() {
           hello 🙂, My name is Promise
         </div>
         <div  className='text-slate-100 text-4xl xsm:text-xl font-medium text-center  '>
-            A Frontend Developer<br/> specialized in <span id='scrollText' >{words[currentWord]}</span>
+            A Frontend Developer<br/> specialized in <span ><Typewriter
+            options={{
+              strings:["JavaScript","Typescript", "React js", "Next js","SCSS", "TailwindCSS"],
+              autoStart:true,
+              loop:true,
+              delay:80
+            }}
+            /> </span>
         </div>
     </div> 
     {isScrolled &&(
