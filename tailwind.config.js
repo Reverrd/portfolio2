@@ -19,8 +19,8 @@ export default {
       },
       screens:{
         'xxs': '160px',
-        'xs': '320px',
-        'xsm': {'max':'390px'}
+        'xs': '320px'
+        
       },
       flex: {
         '2': '2 2 0%'

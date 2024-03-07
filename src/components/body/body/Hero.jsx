@@ -30,20 +30,21 @@ export default function Hero() {
   }
   return (
     <>
-    <div id="home" className="h-screen w-full bg-cyan-800 flex items-center justify-center relative">
-    <div className="w-3/4  flex flex-col items-center ">
-      <div className="container flex items-end justify-center relative  w-72 h-72 ">
-        <div className="box border-2 w-60 h-60 rounded-rounded-circle bg-slate-500 absolute bottom-0   ">
+    <div id="home" className="h-screen w-full  flex items-center justify-center relative">
+    <div className=" flex xxs:flex-col md:flex-row items-center w-full h-full ">
+      <div className="leftPart flex relative w-full h-full items-center justify-center xxs:justify-center xxs:pt-40">
+        <div className="box w-72 h-72 rounded-rounded-circle bg-slate-500 absolute">
         <div className="image  ">
             <img className='absolute bottom-0 '  src="./assets/Myself.jpg" alt="" />
         </div>
         </div>
       </div>
-        <div className='text-white'>
+      <div className='rightPart flex flex-col items-center xxs:pt-10 xxs:justify-center'>
+        <div className='text-black font-medium'>
           hello 🙂, My name is Promise
         </div>
-        <div  className='text-slate-100 text-4xl xsm:text-xl font-medium text-center  '>
-            A Frontend Developer<br/> specialized in <span ><Typewriter
+        <div  className='text-black md:text-4xl xxs:text-3xl font-bold text-center   '>
+            A Frontend Developer<br/><span className='md:text-3xl xxs:text-2xl'> specialized in</span> <span className='font-semibold text-blue-900 md:text-3xl xxs:text-2xl' ><Typewriter
             options={{
               strings:["JavaScript","Typescript", "React js", "Next js","SCSS", "TailwindCSS"],
               autoStart:true,
@@ -51,6 +52,7 @@ export default function Hero() {
               delay:80
             }}
             /> </span>
+        </div>
         </div>
     </div> 
     {isScrolled &&(

@@ -31,9 +31,7 @@ function App() {
       <div>
       <Body />
       </div>
-      <div id="contactSection">
-        <ContactSection />
-      </div>
+      
       
       <Footer  />
       <ChakraProvider/>

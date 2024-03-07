@@ -1,16 +1,22 @@
+
+
+#home{
+   background-color: rgb(184, 176, 140); 
+   height: calc(100vh - 48px);
+
+}
+
 .image{
 
     img{
-        width: 240px;
-        height: 320px;
+        width: 280px;
+        height: 360px;
      border-radius: 0 0 100vw 100vw;
     object-fit: cover;
     // filter: grayscale(1);
     }
 }
-#scrollText{
-    animation: scroll 10s linear infinite;
-}
+
 @keyframes scroll {
     0%{
         transform: translateY(0);
@@ -18,4 +24,10 @@
     100%{
         transform: translateY(-100%);
     }
+}
+.leftPart{
+    flex: 0.5;
+}
+.rightPart{
+    flex: 0.5;
 }
