@@ -1,5 +1,5 @@
 
-
+import axios from 'axios'
 
 import Validate from "./Validate"
 
@@ -14,9 +14,10 @@ export default function ContactSection() {
   const [message, setMessage] = useState('')
   
   const [verified, setVerified] = useState(false);
+  const [submitting, setSubmitting] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
   
-  
-      
+    
   const handleValidation = ()=>{
     const validationErrors = Validate({name, email, enquiry, message})
     setErrors(validationErrors);
@@ -25,45 +26,61 @@ export default function ContactSection() {
 
       const handleSubmit = (e)=>{
           e.preventDefault();
-          const isValid = handleValidation();
-          if(!isValid)  {setVerified(true) 
+          setSubmitting(true)
+          const data ={
+            Name: name,
+            Email: email,
+            Enquiry: enquiry,
+            Message: message
+          }
+          axios.post('https://sheet.best/api/sheets/87c6d307-6b33-4efd-892e-d873b2ca3760', data)
+          .then((response)=>{
+            console.log(response);
+            
+            const isValid = handleValidation();
           
-          setName('');
-          setEmail('');
-          setEnquiry(undefined);
-          setMessage('');
-          
-    
-          
-      }};
-        
-        
-   
+            if(!isValid)  {
+              console.log({name,email,enquiry,message})
+              setVerified(true) 
+              setName('');
+            setEmail('');
+            setEnquiry(undefined);
+            setMessage('');
+            }
+            setSubmitting(false)
 
+          })
+          .catch((error)=>{
+            console.log(error)
+            setSubmitting(false)
+          })
+        }
   return (
-    <div id="contact" className="bg-indigo-800 h-auto text-white static top-10">
+    <div id="contact" className=" bg-indigo-900 h-auto text-white static top-10">
       <div id="contactWrapper" className="py-11 px-14">
       <h1 className="font-bold text-2xl text-white">Contact Me</h1>
       
-      <div id="formWrapper" className=" flex  pt-9 justify-center px-28">
-      <form onSubmit={handleSubmit} className="w-11/12 lg:w-8/12 xs:w-screen">
-        <div className="flex flex-col pb-3 ">
-        <label htmlFor="name">Name</label>
+      <div id="formWrapper" className=" flex  pt-9 justify-center ">
+      <form onSubmit={handleSubmit} className=" px-4 bg-white   lg:w-4/12 xxs:w-10/12 rounded-lg">
+        <div className=" text-black flex flex-col pb-3 ">
+        <label className='my-2' htmlFor="name">Name</label>
         <input
-        className="px-1 bg-transparent border rounded-md py-1 "
-         
+        className="px-1  bg-transparent border border-black  active:outline-none  rounded-md py-1 "
+         autoComplete="off"
         type="text"
         name="name"
-        onChange={(e)=>setName(e.target.value)}
+        onChange={(e)=>{setName(e.target.value)
+        }}
         value={name} />
         {errors.name && (
           <div className="text-red-500">{errors.name}</div>
         )}
         </div>
-        <div className="flex flex-col pb-3">
-        <label htmlFor="email">Email Address</label>
+        <div className="text-black flex flex-col pb-3">
+        <label className='my-2' htmlFor="email">Email Address</label>
         <input
-        className="px-1 bg-transparent border rounded-md py-1 " 
+        className="px-1 bg-transparent border border-black rounded-md py-1 " 
+        autoComplete="off"
         type="text"
         name="email"
         onChange={(e)=>setEmail(e.target.value)}
@@ -72,10 +89,10 @@ export default function ContactSection() {
           <div className="text-red-500">{errors.email}</div>
         )}
         </div>
-        <div className="flex flex-col pb-3">
-          <label htmlFor="enquiry">Type of enquiry</label>
+        <div className="text-black flex flex-col pb-3">
+          <label className='my-2' htmlFor="enquiry">Type of enquiry</label>
           <select
-          className="px-1 bg-transparent border rounded-md py-1 " 
+          className="px-1  bg-transparent border border-black rounded-md py-1 " 
           name="enquiry" 
           id="enquiry"
           onChange={e=>setEnquiry(e.target.value)}
@@ -89,10 +106,10 @@ export default function ContactSection() {
             <div className="text-red-500">{errors.enquiry}</div>
           )}
         </div>
-        <div className="flex flex-col rounded-md pb-3">
-          <label htmlFor="message">Your message</label>
+        <div className="text-black flex flex-col rounded-md pb-3">
+          <label className='my-2' htmlFor="message">Your message</label>
           <textarea 
-          className="bg-transparent border px-1 py-1"
+          className="border-black rounded-lg bg-transparent border px-1 py-1"
           name="message" 
           id="message"                
           cols="30" 
@@ -105,7 +122,8 @@ export default function ContactSection() {
         </div>
         
         <div className="flex justify-center">
-        <button className="py-1  bg-purple-600 border rounded-md w-full" type="submit">Submit</button>
+        
+        <button className="py-2 mb-3  bg-purple-600 border rounded-md w-10/12" type="submit">{submitting ? (<div>Loading</div>) : "Submit"}</button>
         
         </div>
         {verified && (

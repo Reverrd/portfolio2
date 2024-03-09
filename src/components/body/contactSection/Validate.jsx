@@ -14,3 +14,5 @@ export default function Validate(values) {
     if(!values.enquiry){errors.enquiry = 'Please choose a Type'} 
       return errors 
 }
+//https://docs.google.com/spreadsheets/d/18Kw1LvWT2N1pSZ4d6n5lgi5s-XtfbADjoWEd0lL3w0Y/edit?usp=sharing
+//https://sheet.best/api/sheets/87c6d307-6b33-4efd-892e-d873b2ca3760
