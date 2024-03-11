@@ -2,9 +2,9 @@
 import axios from 'axios'
 
 import Validate from "./Validate"
+import './contact.scss'
 
-
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 export default function ContactSection() {
   const [errors, setErrors] = useState({})
@@ -15,7 +15,7 @@ export default function ContactSection() {
   
   const [verified, setVerified] = useState(false);
   const [submitting, setSubmitting] = useState(false)
-  const [submitted, setSubmitted] = useState(false)
+  // const [submitted, setSubmitted] = useState(false)
   
     
   const handleValidation = ()=>{
@@ -23,9 +23,19 @@ export default function ContactSection() {
     setErrors(validationErrors);
     // return Object.keys(validationErrors).length === 0;
   }
+  const allFieldsFilled = useCallback(()=>{
+    return name && email && enquiry && message
+  },[name,email,enquiry,message])
+  useEffect(()=>{
+    setVerified(allFieldsFilled());
+  },[allFieldsFilled])
+    
 
       const handleSubmit = (e)=>{
           e.preventDefault();
+          if (!allFieldsFilled()) {
+            return
+          }
           setSubmitting(true)
           const data ={
             Name: name,
@@ -36,19 +46,25 @@ export default function ContactSection() {
           axios.post('https://sheet.best/api/sheets/87c6d307-6b33-4efd-892e-d873b2ca3760', data)
           .then((response)=>{
             console.log(response);
+            if(response.ok) throw{
+              
+            }
             
             const isValid = handleValidation();
           
-            if(!isValid)  {
+            if(isValid){
               console.log({name,email,enquiry,message})
-              setVerified(true) 
+              setVerified(true)}
+              else{
+                console.log({name,email,enquiry,message})
+                setVerified(false)
               setName('');
             setEmail('');
             setEnquiry(undefined);
             setMessage('');
-            }
+           
             setSubmitting(false)
-
+              }
           })
           .catch((error)=>{
             console.log(error)
@@ -57,11 +73,11 @@ export default function ContactSection() {
         }
   return (
     <div id="contact" className=" bg-indigo-900 h-auto text-white static top-10">
-      <div id="contactWrapper" className="py-11 px-14">
+      <div id="contactWrapper" className="py-11 lg:px-14 xxs:px-9">
       <h1 className="font-bold text-2xl text-white">Contact Me</h1>
       
       <div id="formWrapper" className=" flex  pt-9 justify-center ">
-      <form onSubmit={handleSubmit} className=" px-4 bg-white   lg:w-4/12 xxs:w-10/12 rounded-lg">
+      <form id='form' onSubmit={handleSubmit} className=" px-4 bg-white   lg:w-4/12 sm:w-9/12 xxs:w-full rounded-lg">
         <div className=" text-black flex flex-col pb-3 ">
         <label className='my-2' htmlFor="name">Name</label>
         <input
@@ -123,12 +139,13 @@ export default function ContactSection() {
         
         <div className="flex justify-center">
         
-        <button className="py-2 mb-3  bg-purple-600 border rounded-md w-10/12" type="submit">{submitting ? (<div>Loading</div>) : "Submit"}</button>
+        
+        <button type='submit' disabled={!verified || submitting   } className={`relative py-2 mb-3 border rounded-md w-10/12 ${!verified? 'bg-gray-400 text-slate-300':  'bg-purple-600 text-white'}`}>{submitting ? (<div className='loading'></div>) : "Submit"}</button>
         
         </div>
-        {verified && (
+        {verified ? (
               <div className="text-green-500">Thank you for your application. I will get back to you shortly.</div>
-            )}
+            ):'' }
       </form>
       </div>
       </div>
