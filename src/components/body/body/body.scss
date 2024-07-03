@@ -2,15 +2,15 @@
 
 #home{
    background-color: rgb(184, 176, 140); 
-   height: calc(100vh - 48px);
+//    height: calc(100vh - 48px);
 
 }
 
 .image{
 
     img{
-        width: 280px;
-        height: 360px;
+        width: 100%;
+        height: auto;
      border-radius: 0 0 100vw 100vw;
     object-fit: cover;
     // filter: grayscale(1);

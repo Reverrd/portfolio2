@@ -72,9 +72,9 @@ export default function ContactSection() {
           })
         }
   return (
-    <div id="contact" className=" bg-indigo-900 h-auto text-white static top-10">
+    <div id="contact" className=" h-auto text-white static top-10">
       <div id="contactWrapper" className="py-11 lg:px-14 xxs:px-9">
-      <h1 className="font-bold text-2xl text-white">Contact Me</h1>
+      <h1 className="font-bold text-2xl text-slate-800">Contact Me</h1>
       
       <div id="formWrapper" className=" flex  pt-9 justify-center ">
       <form id='form' onSubmit={handleSubmit} className=" px-4 bg-white   lg:w-4/12 sm:w-9/12 xxs:w-full rounded-lg">

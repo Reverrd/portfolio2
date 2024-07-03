@@ -30,23 +30,23 @@ export default function Hero() {
   }
   return (
     <>
-    <div id="home" className="h-screen w-full  flex items-center justify-center relative">
-    <div className=" flex xxs:flex-col md:flex-row items-center w-full h-full ">
-      <div className="leftPart flex relative w-full h-full items-center justify-center xxs:justify-center xxs:pt-40">
-        <div className="box w-72 h-72 rounded-rounded-circle bg-slate-500 absolute">
-        <div className="image  ">
-            <img className='absolute bottom-0 '  src="./assets/Myself.jpg" alt="" />
+    <div id="home" className="h-auto w-full  flex items-center justify-center ">
+    <div className=" flex xxs:flex-col md:flex-row items-center w-full h-full  mt-10 xs:mb-10 ">
+      <div className="leftPart flex relative w-full h-full items-center justify-center xs:pt-[45px] xxs:justify-center xxs:pt-35">
+        <div className=" box w-[300px] h-[300px]  rounded-rounded-circle bg-slate-500 relative ">
+        <div className="image absolute bottom-0   ">
+            <img className='  '  src="./assets/Headshot.png" alt="My profile picture" />
         </div>
         </div>
       </div>
-      <div className='rightPart flex flex-col items-center xxs:pt-10 xxs:justify-center'>
+      <div className='rightPart flex flex-col items-center xxs:pt-[10px] xxs:justify-center'>
         <div className='text-black font-medium'>
           hello 🙂, My name is Promise
         </div>
         <div  className='text-black md:text-4xl xxs:text-3xl font-bold text-center   '>
             A Frontend Developer<br/><span className='md:text-3xl xxs:text-2xl'> specialized in</span> <span className='font-semibold text-blue-900 md:text-3xl xxs:text-2xl' ><Typewriter
             options={{
-              strings:["JavaScript","Typescript", "React js", "Next js","SCSS", "TailwindCSS"],
+              strings:["JavaScript","Typescript", "React js", "Next js","SCSS", "TailwindCSS", "PostgreSQL"],
               autoStart:true,
               loop:true,
               delay:80
